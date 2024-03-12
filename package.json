@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy-contract": "hardhat run scripts/deployMain.js --network shm",
+    "compile": "hardhat compile"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
@@ -29,7 +31,8 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "viem": "^1.16.2",
-    "wagmi": "^1.4.3"
+    "wagmi": "^1.4.3",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
