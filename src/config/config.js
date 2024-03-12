@@ -4,6 +4,7 @@ export default {
     "UniswapRouter": "0xECA7c18438c86F63Cc8a56F376Da97Fd77ccC365",
     Slippage:2,//2%
     contracts: {
-        GIT_CONTRACT: "0x17486C4e34b2b6c6690C835Ab7bbDA6e5722E239"
+        GIT_CONTRACT: "0x17486C4e34b2b6c6690C835Ab7bbDA6e5722E239",
+        MAIN_CONTACT: "0xf665904F8656Cbef3eBF6aDEb1f2D10F3705b35D"
     }
 }
