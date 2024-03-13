@@ -30,7 +30,7 @@ export const Navbar = () => {
                     <Button variant="outline">
                         <p className=' font-semibold'>
                             {
-                                connected ? (<span className='inline-flex items-center space-x-2'>
+                                connected ? (<span className='inline-flex items-center space-x-2 text-white'>
                                     <WalletOutlined size={24} />
                                     {balance.slice(0, 5)} SHM
                                 </span>) : (<span className='inline-flex items-center space-x-4'>
