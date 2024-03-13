@@ -1,3 +1,4 @@
+"use client"
 import React, { createContext, useState, useCallback } from "react";
 import { ethers } from "ethers";
 import { Modal, message } from "antd";
