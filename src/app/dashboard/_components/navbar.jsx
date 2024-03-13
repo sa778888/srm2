@@ -16,7 +16,7 @@ export const Navbar = () => {
     useEffect(() => {
         if (!connected) {
             //toast.error('Wallet not connected')
-           return router.push('/login');
+        //    return router.push('/login');
         }
     }, [connected])
     return (
