@@ -1,4 +1,3 @@
-
 "use client";
 import WalletHeader from "@/components/Header";
 import Link from "next/link";
