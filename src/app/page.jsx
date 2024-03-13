@@ -2,7 +2,7 @@
 import WalletHeader from "@/components/Header";
 import Link from "next/link";
 import "@/app/globals.css";
-import Wrap from "./framermotion/motion";
+import Wrap from "./(framermotion)/motion";
 import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
@@ -61,37 +61,22 @@ export default function Home() {
                     <div>
                       {" "}
                       <div className="flex justify-center gap-8">
-                        <Link href="/rpc">
+                        <Link href="/login">
                           <Button className="py-6 px-6 text-lg bg-white text-black hover:bg-zinc-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                             Get Started
                           </Button>
                         </Link>
-                        <a
-                          href="https://github.com/Shardeum/shardeum-dapp-boilerplate"
-                          className="flex items-center py-6 px-6 text-lg bg-blue-500 hover:bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <span>Contribute</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6 ml-2"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                            />
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M10 21v-8l-4-4 4-4v8l5 5-5 5z"
-                            />
-                          </svg>
-                        </a>
+
+
+                        <Link href="/">
+                          <Button className="py-6 px-6 text-lg bg-zinc-700 text-white hover:bg-zinc-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Contribute
+                          </Button>
+                        </Link>
+
+
+
+
                       </div>
                     </div>
                   </div>
