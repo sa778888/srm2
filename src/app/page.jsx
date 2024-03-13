@@ -1,40 +1,45 @@
+"use client"
+import WalletHeader from '@/components/Header';
 import Link from 'next/link';
-
+import "@/app/globals.css"
 export default function Home() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'top', minHeight: '100vh', backgroundColor: '#023020', color: '#ffffff' }}>
-      <div style={{ textAlign: 'center', paddingTop: '10vh', width: '100vw' }}>
-        <div style={{ fontWeight: 'bold' }}>Welcome to Shardeum Dapp Boilerplate</div>
-        <div style={{ fontSize: '18px' }}>Kickstart your decentralized application journey with confidence.</div>
-
-        <div style={{ padding: '5vh 10vw', display: 'flex', justifyContent: 'center', gap: '2rem' }}>
-          <div style={{ textAlign: 'center' }}>
-            {/* <GlobalOutlined style={{ fontSize: '48px', color: '#40a9ff' }} /> */}
-            <div style={{ fontWeight: 'bold' }}>Blockchain RPC</div>
-            <div>Seamless real-time Shardeum RPC call functionalities. Dive into the vast universe of queries, transactions, and smart contracts.</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            {/* <FileImageOutlined style={{ fontSize: '48px', color: '#40a9ff' }} /> */}
-            <div style={{ fontWeight: 'bold' }}>NFT Minting</div>
-            <div>Mint your own NFTs from an NFT collection on the Shardeum blockchain with ease.</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            {/* <BankOutlined style={{ fontSize: '48px', color: '#40a9ff' }} /> */}
-            <div style={{ fontWeight: 'bold' }}>DeFi Explorations</div>
-            <div>Discover the world of DeFi by building with one of the biggest DeFi protocols in the web3 space - Uniswap.</div>
-          </div>
-        </div>
-        <hr style={{ borderColor: '#40a9ff', margin: '20px 0' }} />
-
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-          <Link href="/rpc">
-            <button style={{ padding: '0.5rem 1rem', fontSize: '1rem', backgroundColor: '#40a9ff', color: '#ffffff', border: 'none', cursor: 'pointer', borderRadius: '5px' }}>Get Started</button>
-          </Link>
-          <Link href="https://github.com/Shardeum/shardeum-dapp-boilerplate">
-            <button style={{ padding: '0.5rem 1rem', fontSize: '1rem', backgroundColor: '#40a9ff', color: '#ffffff', border: 'none', cursor: 'pointer', borderRadius: '5px' }}>Contribute</button>
-          </Link>
-        </div>
+    <div className='bg-red-500'>
+      <WalletHeader />
+      <div className=" min-h-screen bg-gradient-to-b from-blue-900 to-blue-800 text-white">
+  <div className="container mx-auto py-20 px-6">
+    <h1 className="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">Welcome to Shardeum <br/> Dapp Boilerplate</h1>
+    <p className="text-lg text-center mb-12">Kickstart your decentralized application journey with confidence.</p>
+    <div className='flex justify-center items-center'><img className='' src="./head.png" alt="" /></div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="bg-gray-800 p-8 rounded-lg">
+        <h2 className="text-xl font-bold mb-4">Blockchain RPC</h2>
+        <p className="text-sm">Seamless real-time Shardeum RPC call functionalities. Dive into the vast universe of queries, transactions, and smart contracts.</p>
       </div>
+      <div className="bg-gray-800 p-8 rounded-lg">
+        <h2 className="text-xl font-bold mb-4">NFT Minting</h2>
+        <p className="text-sm">Mint your own NFTs from an NFT collection on the Shardeum blockchain with ease.</p>
+      </div>
+      <div className="bg-gray-800 p-8 rounded-lg">
+        <h2 className="text-xl font-bold mb-4">DeFi Explorations</h2>
+        <p className="text-sm">Discover the world of DeFi by building with one of the biggest DeFi protocols in the web3 space - Uniswap.</p>
+      </div>
+    </div>
+    
+    <div className="flex justify-center gap-8">
+      <Link href="/rpc">
+        <button className="py-3 px-6 text-lg bg-blue-500 hover:bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">Get Started</button>
+      </Link>
+      <a href="https://github.com/Shardeum/shardeum-dapp-boilerplate" className="flex items-center py-3 px-6 text-lg bg-blue-500 hover:bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <span>Contribute</span>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 21v-8l-4-4 4-4v8l5 5-5 5z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
     </div>
   );
 }

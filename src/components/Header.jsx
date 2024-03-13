@@ -4,11 +4,9 @@ import { Layout, Button, Modal, Space, Typography } from 'antd';
 import { useContext, useEffect } from 'react';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { WalletOutlined } from '@ant-design/icons';
-import { useRouter } from 'next/router';
 import { WalletContext } from '@/context/WalletContext';
+import { useRouter } from 'next/navigation';
 const { Header } = Layout;
-const { Text } = Typography;
-
 
 const WalletHeader = () => {
   const router = useRouter();
@@ -23,7 +21,7 @@ const WalletHeader = () => {
     setVisible,
     connectWallet,
     disconnectWallet
-  } = useContext(WalletContext);
+  } = useContext(WalletContext) || {};
 
   useEffect(() => {
     const init = async () => {
@@ -67,12 +65,11 @@ const WalletHeader = () => {
 
   return (
     <>
-      
-      <Header className='bg-red-500/80' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className='bg-transparent' style={{ height: '10vh', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Link href="/">
-          <img src="/logo.png" alt="Logo" style={{ height: '256px', marginRight: '10px', marginTop: '30px' }} />
+          <img src="/logo.png" alt="Logo" style={{ height: '20vh', marginRight: '10px', marginTop: '0' }} />
         </Link>
-        <nav style={{ display: 'flex', gap: '20px' }}>
+        <nav style={{ display: 'flex', gap: '8vw' }}>
           <Link href="/" style={{ color: router.pathname === '/' ? '#A4FF00' : 'white', cursor: 'pointer' }}>Home</Link>
           <Link href="/rpc" style={{ color: router.pathname === '/rpc' ? '#A4FF00' : 'white', cursor: 'pointer' }}>RPC</Link>
           <Link href="/nft" style={{ color: router.pathname === '/nft' ? '#A4FF00' : 'white', cursor: 'pointer' }}>NFT</Link>
@@ -80,21 +77,21 @@ const WalletHeader = () => {
           <Link href="/contract" style={{ color: router.pathname === '/contract' ? '#A4FF00' : 'white', cursor: 'pointer' }}> Contract  </Link>
         </nav>
         {connected ? (
-          <Space direction="horizontal" align="center">
+          <div direction="horizontal" align="center">
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'end', marginRight: '10px' }}>
-              <Text style={{ color: 'white', marginBottom: '5px' }}>
+              <div style={{ color: 'white', marginBottom: '5px' }}>
                 {selectedAddress.slice(0, 6) + "..." + selectedAddress.slice(-4)}
-              </Text>
-              <Text style={{ color: 'white' }}>
+              </div>
+              <div style={{ color: 'white' }}>
                 {balance.slice(0, 5)} SHM
-              </Text>
+              </div>
             </div>
             <Button type="primary" shape="circle" icon={<WalletOutlined />} onClick={() => setVisible(true)} />
-          </Space>
+          </div>
         ) : (
           <Button type="primary" onClick={connectWallet}>Connect Wallet</Button>
         )}
-        <Modal
+        <div
           title="Wallet Info"
           open={visible}
           onCancel={() => setVisible(false)}
@@ -102,16 +99,15 @@ const WalletHeader = () => {
             <Button key="back" onClick={disconnectWallet}>Disconnect Wallet</Button>,
           ]}
         >
-          <Space direction="vertical">
-            <Text>Address: {selectedAddress}</Text>
-            <Text>Balance: {balance} SHM</Text>
+          <div className='flex ' direction="vertical">
+            <p className='text-white'>Address: {selectedAddress}</p>
+            <p className='text-white'>Balance: {balance} SHM</p>
             <Button href="https://docs.shardeum.org/faucet/claim" target="_blank">Claim Testnet SHM</Button>
-          </Space>
-        </Modal>
-      </Header>
+          </div>
+        </div>
+      </div>
     </>
   );
-
 }
 
 export default WalletHeader;

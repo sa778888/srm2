@@ -1,7 +1,6 @@
 import React, { createContext, useState, useCallback } from "react";
 import { ethers } from "ethers";
 import { Modal, message } from "antd";
-
 export const WalletContext = createContext();
 
 const desiredNetwork = 8082;
