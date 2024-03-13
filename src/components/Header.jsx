@@ -78,11 +78,9 @@ const WalletHeader = () => {
         }}
       >
         <Link href="/">
-          <img
-            src="/logo.png"
-            alt="Logo"
-            style={{ height: "20vh", marginRight: "10px", marginTop: "0" }}
-          />
+
+          <img src="/logo.png" alt="Logo" style={{ height: '25vh', marginRight: '15px', marginTop: '0' }} />
+
         </Link>
         <nav style={{ display: "flex", gap: "8vw" }}>
           <Link
@@ -135,18 +133,14 @@ const WalletHeader = () => {
         </nav>
         {connected ? (
           <div direction="horizontal" align="center">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "end",
-                marginRight: "10px",
-              }}
-            >
-              <div style={{ color: "white", marginBottom: "5px" }}>
-                {selectedAddress.slice(0, 6) +
-                  "..." +
-                  selectedAddress.slice(-4)}
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'end', marginRight: '5px' }}>
+              <div style={{ color: 'white', marginBottom: '5px' }}>
+                {selectedAddress.slice(0, 6) + "..." + selectedAddress.slice(-4)}
+              </div>
+              <div style={{ color: 'white' }}>
+                {balance.slice(0, 5)} SHM
+
               </div>
               <div style={{ color: "white" }}>{balance.slice(0, 5)} SHM</div>
             </div>
@@ -172,13 +166,12 @@ const WalletHeader = () => {
             </Button>,
           ]}
         >
-          <div className="flex " direction="vertical">
-            <Button
-              href="https://docs.shardeum.org/faucet/claim"
-              target="_blank"
-            >
-              Claim Testnet SHM
-            </Button>
+
+          <div className='flex ' direction="vertical">
+            {/* <p className='text-white'>Address: {selectedAddress}</p>
+            <p className='text-white'>Balance: {balance} SHM</p> */}
+            <Button href="https://docs.shardeum.org/faucet/claim" target="_blank">Claim Testnet SHM</Button>
+
           </div>
         </div>
       </div>
