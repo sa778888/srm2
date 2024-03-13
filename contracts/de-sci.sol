@@ -4,8 +4,7 @@ pragma solidity ^0.8.3;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-
-contract ResearchPlatform is ERC721,ERC721URIStorage {
+contract ResearchPlatform is ERC721, ERC721URIStorage {
     struct User {
         address userAddress;
         uint256[] publishedDatasets;
@@ -52,10 +51,16 @@ contract ResearchPlatform is ERC721,ERC721URIStorage {
     event DatasetPublished(uint256 datasetId, address owner);
     event CollaborationRequested(uint256 datasetId, address collaborator);
     event FeedbackSubmitted(uint256 paperId, address reporter);
-    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721URIStorage) returns (bool) {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view override(ERC721, ERC721URIStorage) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
-    function mintWithTokenURI(address to, uint256 tokenId, string memory tokenURI) internal {
+    function mintWithTokenURI(
+        address to,
+        uint256 tokenId,
+        string memory tokenURI
+    ) internal {
         _mint(to, tokenId);
         _setTokenURI(tokenId, tokenURI);
     }
@@ -63,15 +68,20 @@ contract ResearchPlatform is ERC721,ERC721URIStorage {
     //     super._burn(tokenId);
     // }
 
-    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+    function tokenURI(
+        uint256 tokenId
+    ) public view override(ERC721, ERC721URIStorage) returns (string memory) {
         return super.tokenURI(tokenId);
     }
-
 
     function registerUser() public {
         User storage user = users[msg.sender];
         user.userAddress = msg.sender;
         emit UserRegistered(msg.sender);
+    }
+    
+    function isUserPresent(address userAddress) public view returns (bool) {
+        return users[userAddress].userAddress != address(0);
     }
 
     function publishDataset(

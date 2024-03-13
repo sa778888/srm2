@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "deplot-localhost": "hardhat run scripts/deployMain.js --network localhost",
     "deploy-contract": "hardhat run scripts/deployMain.js --network shm",
     "compile": "hardhat compile"
   },

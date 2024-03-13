@@ -1,5 +1,6 @@
 "use client"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { WalletContext } from '@/context/WalletContext'
 import { WalletOutlined } from '@ant-design/icons'
@@ -13,24 +14,32 @@ export const Navbar = () => {
     const { balance, connected } = useContext(WalletContext);
     const router = useRouter();
     useEffect(() => {
-        if(!connected){
+        if (!connected) {
             //toast.error('Wallet not connected')
            return router.push('/login');
         }
     }, [connected])
     return (
         <div className='fixed top-0 h-12 w-full p-2 '>
-            <div className="w-full px-4 flex justify-between">
-                <div className="w-fit">
+            <div className="w-full px-4 flex justify-between ">
+                <div className="flex flex-row w-fit items-center space-x-4">
                     <Avatar>
-                        <AvatarImage src="https://randomuser.me/api/port" />
+                        <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback className="bg-white/10">CN</AvatarFallback>
                     </Avatar>
-                    <p className='inline-flex font-semibold'>
-                        {
-                            connected ? (<WalletOutlined size={24} />) : (<Skeleton className="w-16 h-8" />)
-                        }
-                    </p>
+                    <Button variant="outline">
+                        <p className=' font-semibold'>
+                            {
+                                connected ? (<span className='inline-flex items-center space-x-2'>
+                                    <WalletOutlined size={24} />
+                                    {balance.slice(0, 5)} SHM
+                                </span>) : (<span className='inline-flex items-center space-x-4'>
+                                    <Wallet2 size={20} />
+                                    Connect Wallet
+                                    </span>)
+                            }
+                        </p>
+                    </Button>
                 </div>
             </div>
         </div>
