@@ -36,7 +36,7 @@ const HistoryPage = () => {
             <Card className="flex flex-col min-w-96 min-h-96 space-y-4 w-fit h-fit p-4">
                 <CardTitle>Your Research History</CardTitle>
                 <CardDescription>List of your recently minted papers</CardDescription>
-                <CardContent>
+                <CardContent className="flex flex-col space-y-2">
                     {
                         (isLoading || !data) && <div className="flex items-center justify-center"><Loader2 className='animate-spin w-6 h-6' /></div>
                     }

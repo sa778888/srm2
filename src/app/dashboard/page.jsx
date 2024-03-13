@@ -124,7 +124,7 @@ const DashboardPage = () => {
                     {
                         resp2?.hash
                     }
-                    <a href={`ipfs://${uploadRes?.IpfsHash}`} target='_blank'>Link</a>
+                    <a href={`ipfs://${uploadRes?.IpfsHash}`} target='_blank' className='hover:underline'>Link</a>
                     </div>
                 </CardFooter>
             </Card>
