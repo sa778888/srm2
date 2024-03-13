@@ -12,7 +12,7 @@ export const WalletProvider = ({ children }) => {
   const [connected, setConnected] = useState(false);
   const [visible, setVisible] = useState(false);
   const [signer, setSigner] = useState(null);
-
+  const [isMember, setIsMember] = useState(false);
   const updateBalance = useCallback(async (account) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const balance = await provider.getBalance(account);
@@ -44,6 +44,10 @@ export const WalletProvider = ({ children }) => {
         setSelectedAddress(accounts[0]);
         await updateBalance(accounts[0]);
         setConnected(true);
+        return {
+          signer: signerInstance,
+          address: signerInstance.getAddress(),
+        }
       } catch (error) {
         console.error(error);
       }

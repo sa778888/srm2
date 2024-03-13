@@ -960,5 +960,24 @@ export default [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	}
+	},
+	{
+        "constant": true,
+        "inputs": [
+            {
+                "name": "userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserPresent",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
 ]
