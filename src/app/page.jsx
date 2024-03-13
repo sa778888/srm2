@@ -2,14 +2,16 @@
 import WalletHeader from '@/components/Header';
 import Link from 'next/link';
 import "@/app/globals.css"
+import Wrap from './framermotion/motion';
 export default function Home() {
   return (
+    <Wrap>
     <div className='bgr'>
       <WalletHeader />
       <div className=" min-h-screen  text-white">
-  <div className="container mx-auto py-20 px-6">
-    <h1 className="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">Welcome to Shardeum <br/> Dapp Boilerplate</h1>
-    <p className="text-lg text-center mb-12">Kickstart your decentralized application journey with confidence.</p>
+  <div className="container mx-auto py-10 px-6">
+    <h1 className=" text-7xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">Welcome to Shardeum <br/> Dapp Boilerplate</h1>
+    <p className="font-sans text-2xl font-bold text-center mb-12">Kickstart your decentralized application journey with confidence.</p>
     <div className='flex justify-center items-center'><img className='' src="./head.png" alt="" /></div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div className="bg-gray-800 p-8 rounded-lg">
@@ -41,5 +43,6 @@ export default function Home() {
   </div>
 </div>
     </div>
+    </Wrap>
   );
 }
