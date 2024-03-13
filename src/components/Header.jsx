@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { ethers } from "ethers";
-import { Layout, Button, Modal, Space, Typography } from "antd";
+import { Layout, Modal, Space, Typography } from "antd";
 import { useContext, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { WalletOutlined } from "@ant-design/icons";
 import { WalletContext } from "@/context/WalletContext";
 import { useRouter } from "next/navigation";
 const { Header } = Layout;
-
+import { Button } from '@/components/ui/button'
 const WalletHeader = () => {
   const router = useRouter();
   const {
@@ -142,29 +142,9 @@ const WalletHeader = () => {
 
         <div className="flex mr-8 gap-4">
           {connected ? (
-            <div direction="horizontal" align="center">
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "end",
-                  marginRight: "10px",
-                }}
-              >
-                <div style={{ color: "white", marginBottom: "5px" }}>
-                  {selectedAddress.slice(0, 6) +
-                    "..." +
-                    selectedAddress.slice(-4)}
-                </div>
-                <div style={{ color: "white" }}>{balance.slice(0, 5)} SHM</div>
-              </div>
-              <Button
-                type="primary"
-                shape="circle"
-                icon={<WalletOutlined />}
-                onClick={() => setVisible(true)}
-              />
-            </div>
+
+            <Button varint="green" style={{ color: "white" }} className="bg-transparent"><WalletOutlined />
+              {balance.slice(0, 5)} SHM</Button>
           ) : (
             <button
               onClick={connectWallet}
