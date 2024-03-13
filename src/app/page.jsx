@@ -1,4 +1,3 @@
-
 "use client";
 import WalletHeader from "@/components/Header";
 import Link from "next/link";
@@ -97,9 +96,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
-    </Wrap>
   );
 }
