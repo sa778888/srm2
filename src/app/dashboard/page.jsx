@@ -7,6 +7,14 @@ import { uploadToIPFS } from '@/lib/ipfs';
 import { Contract } from 'ethers';
 import React, { useContext, useState } from 'react'
 import { toast } from 'sonner';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
 
 const addResearchPaperToUser = async ({ hash, signer, title, abstract, date, authors }) => {
     try {
@@ -36,7 +44,7 @@ const DashboardPage = () => {
     const [authors, setAuthors] = useState('');
 
     return (
-        <div className='bg-white/10 p-6 rounded-xl space-y-4'>
+        <div className='bg-white/10 p-12  rounded-xl border-green-500 space-y-6'>
             <p className="font-semibold text-white">
                 Upload your research paper to mint an NFT
             </p>
@@ -62,7 +70,7 @@ const DashboardPage = () => {
             <Input type="file" className="text-white"
                 onChange={(e) => setFile(e.target.files[0])}
             />
-            <Button type="submit"
+            <Button className="border-red-400" type="submit"
                 onClick={() => {
                     uploadToIPFS(file).then((res) => {
                         setUploadRes(res);
@@ -92,6 +100,19 @@ const DashboardPage = () => {
                 }}>
                 Submit
             </Button>
+            <Card>
+                <CardHeader>
+                    <CardTitle>Title</CardTitle>
+                    <CardDescription>Your Title is `{title}`</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <p>Author : {authors}</p>
+                </CardContent>
+                <CardFooter>
+                    <p>Hash : {}</p>
+                    
+                </CardFooter>
+            </Card>
         </div>
     )
 }
