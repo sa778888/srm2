@@ -7,7 +7,7 @@ const envSchema = z.object({
     UniswapRouter: z.string().optional().default("0xECA7c18438c86F63Cc8a56F376Da97Fd77ccC365"),
     Slippage: z.number().default(2),
     GIT_CONTRACT: z.string().default("0x17486C4e34b2b6c6690C835Ab7bbDA6e5722E239"),
-    MAIN_CONTRACT: z.string().optional().default("0x143773359A6Fe427062C7bd659c7592309b58f49"),
+    MAIN_CONTRACT: z.string().optional().default("0x428Fd24d902D32d27fA67009245f0E94d9267915"),
     PRIVATE_KEY: z.string().optional().default(""),
     SHARDEUM_RPC: z.string().optional().default("https://hackathon.shardeum.org/"),
     PINATE_KEY: z.string().optional().default(""),

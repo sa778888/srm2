@@ -32,7 +32,6 @@ const WalletHeader = () => {
       }
     };
     init();
-
     return () => {
       if (window.ethereum.removeListener) {
         window.ethereum.removeListener("chainChanged", handleChainChanged);
@@ -147,10 +146,12 @@ const WalletHeader = () => {
               {balance.slice(0, 5)} SHM</Button>
           ) : (
             <button
-              onClick={connectWallet}
+              onClick={()=>{
+                router.push('/login')
+              }}
               className="bg-green-400 text-black hover:text-green-400 hover:bg-black border border-green-400 hover:border-green-400 transition duration-500 px-2 py-1 rounded-xl"
             >
-              Connect Wallet
+              Login
             </button>
           )}
           <div
