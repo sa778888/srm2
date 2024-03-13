@@ -7,7 +7,8 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 contract ResearchPlatform is ERC721, ERC721URIStorage {
     struct User {
         address userAddress;
-        uint256[] publishedDatasets;
+        string[] publishedDatasets;
+        string[] publishedPapers;
         uint256 inaccuracyReports;
     }
     struct Paper {
@@ -99,7 +100,7 @@ contract ResearchPlatform is ERC721, ERC721URIStorage {
         dataset.dateOfPublication = dateOfPublication;
         dataset.keywords = keywords;
         dataset.owner = msg.sender;
-        users[msg.sender].publishedDatasets.push(datasetCount);
+        users[msg.sender].publishedDatasets.push(uri);
         _mint(msg.sender, datasetCount); // Mint a new NFT for the dataset
         _setTokenURI(datasetCount, uri); // Set the NFT's metadata URI to the IPFS URI
         emit DatasetPublished(datasetCount, msg.sender);
@@ -120,6 +121,7 @@ contract ResearchPlatform is ERC721, ERC721URIStorage {
         paper.dateOfPublication = dateOfPublication;
         paper.authors = authors;
         paper.owner = msg.sender;
+        users[msg.sender].publishedPapers.push(uri);
         _mint(msg.sender, paperCount); // Mint a new NFT for the paper
         _setTokenURI(paperCount, uri); // Set the NFT's metadata URI to the IPFS URI
         emit PaperPublished(paperCount, msg.sender);
@@ -152,7 +154,7 @@ contract ResearchPlatform is ERC721, ERC721URIStorage {
 
     function getUserDatasets(
         address userAddress
-    ) public view returns (uint256[] memory) {
+    ) public view returns (string[] memory) {
         return users[userAddress].publishedDatasets;
     }
 
@@ -181,6 +183,10 @@ contract ResearchPlatform is ERC721, ERC721URIStorage {
             paper.owner,
             paper.citations
         );
+    }
+
+    function getAllPapersByUser() public view returns (string[] memory){
+        return users[msg.sender].publishedPapers;
     }
 
     function citePaper(uint256 paperId) public {

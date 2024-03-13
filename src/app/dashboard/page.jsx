@@ -15,6 +15,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { Loader2 } from 'lucide-react';
 
 const addResearchPaperToUser = async ({ hash, signer, title, abstract, date, authors }) => {
     try {
@@ -42,7 +43,8 @@ const DashboardPage = () => {
     const [paperAbstract, setAbstract] = useState('');
     const [dateOfPublication, setDate] = useState('');
     const [authors, setAuthors] = useState('');
-
+    const [resp2,setResponse2] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
     return (
         <div className='bg-white/10 p-12  rounded-xl border-green-500 space-y-6'>
             <p className="font-semibold text-white">
@@ -72,6 +74,7 @@ const DashboardPage = () => {
             />
             <Button className="border-red-400" type="submit"
                 onClick={() => {
+                    setIsLoading(true);
                     uploadToIPFS(file).then((res) => {
                         setUploadRes(res);
                         console.log(res);
@@ -82,23 +85,29 @@ const DashboardPage = () => {
                             abstract: paperAbstract,
                             date: dateOfPublication,
                             authors: ["asd", "asd", "asd"]
-                        }).then(() => {
-
+                        }).then((resp2) => {
+                            setResponse2(resp2)
                             toast.success("File uploaded successfully");
                             //Open a new tab at the IPFS in new tab
-
+                            setIsLoading(false);
                             window.open(`https://ipfs.io/ipfs/${res.IpfsHash}`);
                         }).catch((err) => {
                             toast.error("Error uploading file");
                             console.log(err);
+                            throw err;
                         })
                     }
                     ).catch((err) => {
                         toast.error("Error uploading file");
                         console.log(err);
+                        setIsLoading(false);
                     })
-                }}>
-                Submit
+                }}
+                disabled={isLoading}
+                >
+                {
+                    isLoading? <Loader2 className='animate-spin w-4 h-4'/>: "Submit"
+                }
             </Button>
             <Card>
                 <CardHeader>
@@ -109,8 +118,13 @@ const DashboardPage = () => {
                     <p>Author : {authors}</p>
                 </CardContent>
                 <CardFooter>
-                    <p>Hash : {}</p>
-                    
+                    <div className="flex flex-col space-y-4">
+                    <p>IPFS Hash : {uploadRes?.IpfsHash}</p>
+                    <p>Transaction Hash:</p>
+                    {
+                        resp2?.hash
+                    }
+                    </div>
                 </CardFooter>
             </Card>
         </div>
