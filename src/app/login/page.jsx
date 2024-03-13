@@ -4,10 +4,12 @@ import { Button } from '@/components/ui/button'
 import { WalletContext } from '@/context/WalletContext'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 const gra = "bg-gradient-to-r from-purple-400 to-yellow-400"
 const page = () => {
+    const router = useRouter();
     const { connected, signer, connectWallet,disconnectWallet } = useContext(WalletContext);
     const [isLoading, setIsLoading] = useState(false);
     const handleMetamask = () => {
@@ -18,7 +20,8 @@ const page = () => {
         setIsLoading(true);
         try {
             const result = connectWallet();
-
+            setIsLoading(false);
+            router.push('/dashboard');
         } catch (error) {
             setIsLoading(false);
         }
@@ -36,6 +39,9 @@ const page = () => {
                     <h1 className='text-2xl font-semibold text-white'> Metamask</h1>
                     <div className="rounded-full p-6 bg-black/20">
                         <Image src='/svg/metamask.svg' width={100} height={100} />
+                    </div>
+                    <div className="w-full">
+
                     </div>
                     {
                         connected ? (<Button variant={"accent"} className="text-white"
