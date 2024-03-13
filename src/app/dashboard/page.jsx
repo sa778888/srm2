@@ -19,7 +19,7 @@ import { Loader2 } from 'lucide-react';
 
 const addResearchPaperToUser = async ({ hash, signer, title, abstract, date, authors }) => {
     try {
-        const contract = new Contract("0xfb1D8CF8A8cd95eB39Efd5a78F6122bEC568319a", MainContract, signer);
+        const contract = new Contract("0x428Fd24d902D32d27fA67009245f0E94d9267915", MainContract, signer);
         const response = await contract.publishPaper(
             hash,
             title,
@@ -124,6 +124,7 @@ const DashboardPage = () => {
                     {
                         resp2?.hash
                     }
+                    <a href={`ipfs://${uploadRes?.IpfsHash}`} target='_blank'>Link</a>
                     </div>
                 </CardFooter>
             </Card>

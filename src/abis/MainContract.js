@@ -979,5 +979,19 @@ export default [
         "payable": false,
         "stateMutability": "view",
         "type": "function"
+    },
+	{
+        "constant": true,
+        "inputs": [],
+        "name": "getAllPapersByUser",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string[]"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
     }
 ]

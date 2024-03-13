@@ -43,6 +43,12 @@ export const Navbar = () => {
                 </div>
                 <Button variant="link"
                 onClick={()=>{
+                    return router.push("/dashboard")
+                }}>
+                    Mint  <ArrowRight className='w-4 h-4'/>
+                </Button>
+                <Button variant="link"
+                onClick={()=>{
                     return router.push("/history")
                 }}>
                     See Older papers <ArrowRight className='w-4 h-4'/>
