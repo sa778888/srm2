@@ -8,10 +8,10 @@ export default function Home() {
       <WalletHeader />
       <div className=" min-h-screen  text-white">
         <div className="container mx-auto py-20 px-6">
-          <h1 className="text-7xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+          <h1 className="text-7xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-600 to-green-200">
             Welcome to Shardeum <br /> Dapp Boilerplate
           </h1>
-          <p className="text-lg text-center mb-12">
+          <p className="text-2xl text-center mb-12 ">
             Kickstart your decentralized application journey with confidence.
           </p>
           <div className="flex">
@@ -19,7 +19,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="w-2/3 space-y-8">
                   {" "}
-                  <div className="bg-gray-800 p-8 rounded-lg">
+                  <div className="bg-gradient-to-r from-green-950 via-green-700 to-green-500 p-8 rounded-xl">
                     <h2 className="text-xl font-bold mb-4">Blockchain RPC</h2>
                     <p className="text-sm">
                       Seamless real-time Shardeum RPC call functionalities. Dive
@@ -27,7 +27,7 @@ export default function Home() {
                       contracts.
                     </p>
                   </div>{" "}
-                  <div className="bg-gray-800 p-8 rounded-lg">
+                  <div className="bg-gradient-to-r from-green-950 via-green-700 to-green-500 p-8 rounded-xl">
                     <h2 className="text-xl font-bold mb-4">NFT Minting</h2>
                     <p className="text-sm">
                       Mint your own NFTs from an NFT collection on the Shardeum
@@ -45,7 +45,7 @@ export default function Home() {
               <div className="w-2/3 space-y-8">
                 <div className="">
                   <div className="mb-8">
-                    <div className="bg-gray-800 p-8 rounded-lg">
+                    <div className="bg-gradient-to-r from-green-950 via-green-700 to-green-500 p-8 rounded-xl">
                       <h2 className="text-xl font-bold mb-4">
                         DeFi Explorations
                       </h2>
