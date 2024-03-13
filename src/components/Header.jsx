@@ -78,11 +78,9 @@ const WalletHeader = () => {
         }}
       >
         <Link href="/">
-          <img
-            src="/logo.png"
-            alt="Logo"
-            style={{ height: "20vh", marginRight: "10px", marginTop: "0" }}
-          />
+
+          <img src="/logo.png" alt="Logo" style={{ height: '25vh', marginRight: '15px', marginTop: '0' }} />
+
         </Link>
         <nav style={{ display: "flex", gap: "8vw" }}>
           <Link
@@ -157,6 +155,18 @@ const WalletHeader = () => {
                     selectedAddress.slice(-4)}
                 </div>
                 <div style={{ color: "white" }}>{balance.slice(0, 5)} SHM</div>
+
+        {connected ? (
+          <div direction="horizontal" align="center">
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'end', marginRight: '5px' }}>
+              <div style={{ color: 'white', marginBottom: '5px' }}>
+                {selectedAddress.slice(0, 6) + "..." + selectedAddress.slice(-4)}
+              </div>
+              <div style={{ color: 'white' }}>
+                {balance.slice(0, 5)} SHM
+
+
               </div>
               <Button
                 type="primary"
@@ -165,6 +175,7 @@ const WalletHeader = () => {
                 onClick={() => setVisible(true)}
               />
             </div>
+
           ) : (
             <button
               onClick={connectWallet}
@@ -196,6 +207,34 @@ const WalletHeader = () => {
                 Claim Testnet SHM
               </button>
             </div>
+
+            <Button
+              type="primary"
+              shape="circle"
+              icon={<WalletOutlined />}
+              onClick={() => setVisible(true)}
+            />
+          </div>
+        ) : (
+          <Button type="primary" onClick={connectWallet}>
+            Connect Wallet
+          </Button>
+        )}
+        <div
+          title="Wallet Info"
+          open={visible}
+          onCancel={() => setVisible(false)}
+          footer={[
+            <Button key="back" onClick={disconnectWallet}>
+              Disconnect Wallet
+            </Button>,
+          ]}
+        >
+
+          <div className='flex ' direction="vertical">
+            {/* <p className='text-white'>Address: {selectedAddress}</p>
+            <p className='text-white'>Balance: {balance} SHM</p> */}
+            <Button href="https://docs.shardeum.org/faucet/claim" target="_blank">Claim Testnet SHM</Button>
           </div>
         </div>
       </div>
