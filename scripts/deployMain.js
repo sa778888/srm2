@@ -1,5 +1,4 @@
-import hre from "hardhat";
-
+const hre = require("hardhat");
 async function main(){
     const Contract = await hre.ethers.getContractFactory("ResearchPlatform");
     const rp = await Contract.deploy();

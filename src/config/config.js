@@ -8,7 +8,9 @@ const envSchema = z.object({
     GIT_CONTRACT: z.string().default("0x17486C4e34b2b6c6690C835Ab7bbDA6e5722E239"),
     MAIN_CONTRACT: z.string(),
     PRIVATE_KEY: z.string(),
-    SHARDEUM_RPC: z.string()
+    SHARDEUM_RPC: z.string(),
+    PINATE_KEY: z.string().optional().default(""),
+    PINATA_GATEWAY: z.string().optional().default(""),
 });
 
 export const config = envSchema.parse(process.env);
