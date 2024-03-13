@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { WalletContext } from '@/context/WalletContext'
 import { WalletOutlined } from '@ant-design/icons'
-import { Wallet2 } from 'lucide-react'
+import { ArrowRight, Wallet2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 import { toast } from 'sonner'
@@ -41,6 +41,12 @@ export const Navbar = () => {
                         </p>
                     </Button>
                 </div>
+                <Button variant="link"
+                onClick={()=>{
+                    return router.push("/history")
+                }}>
+                    See Older papers <ArrowRight className='w-4 h-4'/>
+                </Button>
             </div>
         </div>
     )
