@@ -39,7 +39,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex justify-center">
-              <img className="" src="./head.png" alt="" />
+              <img className="p-8" src="/blockchain_image.jpg" alt="" />
             </div>
             <div className="flex justify-center">
               <div className="w-2/3 space-y-8">
@@ -59,35 +59,15 @@ export default function Home() {
                     {" "}
                     <div className="flex justify-center gap-8">
                       <Link href="/rpc">
-                        <button className="py-3 px-6 text-lg bg-blue-500 hover:bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button className="bg-green-400 text-black hover:text-green-400 hover:bg-black border border-green-400 hover:border-green-400 transition duration-500 px-2 py-1 rounded-xl">
                           Get Started
                         </button>
                       </Link>
                       <a
                         href="https://github.com/Shardeum/shardeum-dapp-boilerplate"
-                        className="flex items-center py-3 px-6 text-lg bg-blue-500 hover:bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="bg-black text-green-400 hover:text-black hover:bg-green-400 border border-black transition duration-500 px-2 py-1 rounded-xl"
                       >
                         <span>Contribute</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6 ml-2"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M10 21v-8l-4-4 4-4v8l5 5-5 5z"
-                          />
-                        </svg>
                       </a>
                     </div>
                   </div>
