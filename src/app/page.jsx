@@ -4,9 +4,9 @@ import Link from 'next/link';
 import "@/app/globals.css"
 export default function Home() {
   return (
-    <div className='bg-red-500'>
+    <div className='bgr'>
       <WalletHeader />
-      <div className=" min-h-screen bg-gradient-to-b from-blue-900 to-blue-800 text-white">
+      <div className=" min-h-screen  text-white">
   <div className="container mx-auto py-20 px-6">
     <h1 className="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">Welcome to Shardeum <br/> Dapp Boilerplate</h1>
     <p className="text-lg text-center mb-12">Kickstart your decentralized application journey with confidence.</p>
