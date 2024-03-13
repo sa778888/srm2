@@ -69,7 +69,7 @@ const WalletHeader = () => {
   return (
     <>
       <div
-        className="bg-transparent"
+        className="bg-transparent sticky top-0"
         style={{
           height: "10vh",
           display: "flex",
@@ -92,7 +92,9 @@ const WalletHeader = () => {
               cursor: "pointer",
             }}
           >
-            Home
+            <p className=" hover:text-green-400 transition duration-500">
+              Home
+            </p>{" "}
           </Link>
           <Link
             href="/rpc"
@@ -101,7 +103,7 @@ const WalletHeader = () => {
               cursor: "pointer",
             }}
           >
-            RPC
+            <p className=" hover:text-green-400 transition duration-500">RPC</p>
           </Link>
           <Link
             href="/nft"
@@ -110,7 +112,7 @@ const WalletHeader = () => {
               cursor: "pointer",
             }}
           >
-            NFT
+            <p className=" hover:text-green-400 transition duration-500">NFT</p>
           </Link>
           <Link
             href="/defi"
@@ -120,7 +122,9 @@ const WalletHeader = () => {
             }}
           >
             {" "}
-            DeFi{" "}
+            <p className=" hover:text-green-400 transition duration-500">
+              DeFi
+            </p>
           </Link>
           <Link
             href="/contract"
@@ -130,55 +134,68 @@ const WalletHeader = () => {
             }}
           >
             {" "}
-            Contract{" "}
+            <p className=" hover:text-green-400 transition duration-500">
+              Contract
+            </p>
           </Link>
         </nav>
-        {connected ? (
-          <div direction="horizontal" align="center">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "end",
-                marginRight: "10px",
-              }}
-            >
-              <div style={{ color: "white", marginBottom: "5px" }}>
-                {selectedAddress.slice(0, 6) +
-                  "..." +
-                  selectedAddress.slice(-4)}
+
+        <div className="flex mr-8 gap-4">
+          {connected ? (
+            <div direction="horizontal" align="center">
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "end",
+                  marginRight: "10px",
+                }}
+              >
+                <div style={{ color: "white", marginBottom: "5px" }}>
+                  {selectedAddress.slice(0, 6) +
+                    "..." +
+                    selectedAddress.slice(-4)}
+                </div>
+                <div style={{ color: "white" }}>{balance.slice(0, 5)} SHM</div>
               </div>
-              <div style={{ color: "white" }}>{balance.slice(0, 5)} SHM</div>
+              <Button
+                type="primary"
+                shape="circle"
+                icon={<WalletOutlined />}
+                onClick={() => setVisible(true)}
+              />
             </div>
-            <Button
-              type="primary"
-              shape="circle"
-              icon={<WalletOutlined />}
-              onClick={() => setVisible(true)}
-            />
-          </div>
-        ) : (
-          <Button type="primary" onClick={connectWallet}>
-            Connect Wallet
-          </Button>
-        )}
-        <div
-          title="Wallet Info"
-          open={visible}
-          onCancel={() => setVisible(false)}
-          footer={[
-            <Button key="back" onClick={disconnectWallet}>
-              Disconnect Wallet
-            </Button>,
-          ]}
-        >
-          <div className="flex " direction="vertical">
-            <Button
-              href="https://docs.shardeum.org/faucet/claim"
-              target="_blank"
+          ) : (
+            <button
+              onClick={connectWallet}
+              className="bg-green-400 text-black hover:text-green-400 hover:bg-black border border-green-400 hover:border-green-400 transition duration-500 px-2 py-1 rounded-xl"
             >
-              Claim Testnet SHM
-            </Button>
+              Connect Wallet
+            </button>
+          )}
+          <div
+            title="Wallet Info"
+            open={visible}
+            onCancel={() => setVisible(false)}
+            footer={[
+              <button
+                key="back"
+                onClick={disconnectWallet}
+                className="bg-green-400 text-black hover:text-green-400 hover:bg-black border border-green-400  transition duration-500 px-2 py-1 rounded-xl"
+              >
+                Disconnect Wallet
+              </button>,
+            ]}
+          >
+            <div className="flex " direction="vertical">
+              <button
+                href="https://docs.shardeum.org/faucet/claim"
+                target="_blank"
+                className="bg-black text-green-400 hover:text-black hover:bg-green-400 border border-black transition duration-500 px-2 py-1 rounded-xl"
+              >
+                Claim Testnet SHM
+              </button>
+            </div>
           </div>
         </div>
       </div>
